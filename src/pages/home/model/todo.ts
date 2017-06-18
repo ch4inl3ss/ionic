@@ -1,8 +1,8 @@
 export class Todo{
     
-    private title:String;
+    public title:String;
 
-    private description:String;
+    public description:String;
     
 
     constructor(title: String, description:String){
