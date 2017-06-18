@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import  {Todo}   from './model/todo';
 import { AddItemPage } from '../add-item/add-item';
+import { ItemDetailPage } from '../item-detail/item-detail';
 
 @Component({
   selector: 'page-home',
@@ -43,8 +44,11 @@ export class HomePage {
   saveItem(todo:Todo){
     this.todos.push(todo);
   }
- viewItem(item:Todo){
-  console.log(item);
+
+  viewItem(todo:Todo){
+	  console.log(todo);
+    this.navCtrl.push(ItemDetailPage, {todo});
+    
   }
 }
 
