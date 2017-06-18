@@ -46,8 +46,8 @@ export class HomePage {
   }
 
   viewItem(todo:Todo){
-	  console.log(todo);
-    this.navCtrl.push(ItemDetailPage, {todo});
+	  
+    this.navCtrl.push(ItemDetailPage,{todo :todo} );
     
   }
 }
