@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Todo } from '../home/model/todo';
 
 /**
  * Generated class for the AddItemPage page.
@@ -14,7 +15,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddItemPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  title : String;
+  description:String;
+
+  constructor(public navCtrl: NavController, public view: ViewController) {
+ 
+  }
+ 
+  saveItem(){
+ 
+    let newItem = 
+      new Todo(this.title,this.description)
+    ;
+ 
+    this.view.dismiss(newItem);
+ 
+  }
+ 
+  close(){
+    this.view.dismiss();
   }
 
   ionViewDidLoad() {

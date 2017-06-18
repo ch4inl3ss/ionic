@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import  {Todo}   from './model/todo';
+import { AddItemPage } from '../add-item/add-item';
 
 @Component({
   selector: 'page-home',
@@ -8,15 +9,15 @@ import  {Todo}   from './model/todo';
 })
 export class HomePage {
 
-  public items : Todo[];
+  public todos : Todo[];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modalCtrl :ModalController) {
 
   }
 
   ionViewDidLoad(){
  
-    this.items = [
+    this.todos = [
       new Todo("hi1", "bla"),
       new Todo("hi2","blubb")
     ];
@@ -25,12 +26,26 @@ export class HomePage {
  
   addItem(){
  
+    let addModal = this.modalCtrl.create(AddItemPage);
+ 
+    addModal.onDidDismiss((todo) => {
+ 
+          if(todo){
+            this.saveItem(todo);
+          }
+ 
+    });
+ 
+    addModal.present();
+ 
   }
  
-  viewItem(){
+  saveItem(todo){
+    this.todos.push(todo);
+  }
+ viewItem(item){
  
   }
- 
 }
 
 
