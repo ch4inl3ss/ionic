@@ -28,7 +28,7 @@ export class HomePage {
  
     let addModal = this.modalCtrl.create(AddItemPage);
  
-    addModal.onDidDismiss((todo) => {
+    addModal.onDidDismiss((todo:Todo) => {
  
           if(todo){
             this.saveItem(todo);
@@ -40,11 +40,11 @@ export class HomePage {
  
   }
  
-  saveItem(todo){
+  saveItem(todo:Todo){
     this.todos.push(todo);
   }
- viewItem(item){
- 
+ viewItem(item:Todo){
+  console.log(item);
   }
 }
 
