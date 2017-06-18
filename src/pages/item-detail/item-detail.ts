@@ -9,16 +9,15 @@ import { Todo } from '../home/model/todo';
 })
 export class ItemDetailPage {
  
-  title:String ;
-  description : String;
- 
+  todo: Todo ;
+  
   constructor(public navParams: NavParams){
  
   }
  
   ionViewDidLoad() {
-    this.title = this.navParams.get('todo').title;
-    this.description = this.navParams.get('todo').description;
+    this.todo =  this.navParams.get('todo');
+    
   }
  
 }

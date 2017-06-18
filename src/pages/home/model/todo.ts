@@ -9,4 +9,13 @@ export class Todo{
         this.title=title;
         this.description=description;
     }
+
+
+    getTitle() :String {
+        return this.title;
+    }
+
+    getDescription() :String{
+        return this.description;
+    }
 }
